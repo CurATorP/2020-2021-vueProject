@@ -4,7 +4,7 @@
     前序准备：
     安装node.js
     安装vue/cli
-
+    安装Element-ui
 
     ---在根目录下的newVue中实验
     1. 引用VUE，new VUE({})
@@ -15,3 +15,5 @@
 
     使用vue创建本次项目（kaoyan）框架
     1：修改运行指令：npm run dev
+
+    UI框架 ElementUI
