@@ -9,7 +9,10 @@
       <div class="copy">
         <p>主办单位<a :href="zhuban.url">{{ zhuban.name }}</a></p>
         <p>{{ copyright }}</p>
-        <p><a :href="beian.url">{{ beian.name }}</a></p>
+        
+      </div>
+      <div class="beian">
+          <p><a :href="beian.url">{{ beian.name }}</a></p>
       </div>
     </div>
     <div class="foot-right">
@@ -64,13 +67,40 @@
     height: 200px;
     background: #282828;
     color: #ababab;
-    margin-bottom: 0;
-  }
+    
+    a {
+      color: #ababab;
+      padding: 0 5px;
+      display: block;
 
-  #foot-left {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+.youqin{
+    height: 30px;
+    width: 100%;
+    margin-top: 30px;
+    margin-left: 40px;
+    font-size: 14px;
+    justify-content: center;
+  li{
+      display:inline-flex;
+  } 
+}
+
+
+  .foot-left {
     float: left;
   }
-  #foot-right {
+
+  .foot-right {
     float: right;
+
+    img {
+      height: 100px;
+    }
   }
+
 </style>

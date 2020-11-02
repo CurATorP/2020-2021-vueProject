@@ -21,7 +21,5 @@ export default {
 </script>
 
 <style lang="scss">
-li {
-  color: red;
-}
+
 </style>
