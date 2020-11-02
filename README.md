@@ -59,5 +59,7 @@
            将  --exec babel-node --presets @babel/env
            加到dev start 后
        四：把require改为import (index.js)
+       五：添加css预处理器(需要python2.7（或以上？）的环境)
+           npm install node-sass sass-loader --save
            
         
