@@ -23,11 +23,11 @@
 
     安装Nuxtjs
     1：检查 npx -v
-    2：npx create-nuxt-app@2.15.0 kaoyan
-       project name :()
-       project description : my swell Nuxt.js project
-       author name:()
-       pl: js
+    2：npx create-nuxt-app@2.15.0 (kaoyan)
+       project name :(default)
+       project description : my swell Nuxt.js project (default)
+       author name:(default)
+       programming language: js
        package manager: Npm
        UI framework : Element
        custom server framework : Express
@@ -36,3 +36,28 @@
        test framework :None
        rendering mode: SSR
        development tools :jsconfig.json
+    3:项目改造
+       一：npm install @babel/cli @babel/core @babel/node @babel/preset-env -D
+       二：配置 .babelrc 文件 
+    {
+        "env": {
+            "test": {
+                "presets": [
+                    [
+                    "@babel/preset-env",
+                        {
+                            "targets": {
+                                "node": "current"
+                            }
+                        }
+                    ]
+                ]
+            }
+        }
+    }
+       三: 修改启动配置 (package.json)
+           将  --exec babel-node --presets @babel/env
+           加到dev start 后
+       四：把require改为import (index.js)
+           
+        
