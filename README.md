@@ -17,3 +17,22 @@
     1：修改运行指令：npm run dev
 
     UI框架 ElementUI
+
+## 1102:
+    删除上次的项目框架   X
+
+    安装Nuxtjs
+    1：检查 npx -v
+    2：npx create-nuxt-app@2.15.0 kaoyan
+       project name :()
+       project description : my swell Nuxt.js project
+       author name:()
+       pl: js
+       package manager: Npm
+       UI framework : Element
+       custom server framework : Express
+       Nuxt.js modules :Axios
+       linting tools : ESLint
+       test framework :None
+       rendering mode: SSR
+       development tools :jsconfig.json
