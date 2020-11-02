@@ -60,7 +60,11 @@
            加到dev start 后
        四：把require改为import (index.js)
        五：添加css预处理器(需要python2.7（或以上？）的环境)
-           我的环境是python3.7.1可以直接安装
-           npm install node-sass sass-loader --save
-           
+           环境是python3.7.1
+        
+           npm install node-sass@4.14.1 sass-loader@10.0.3 --save
+
+    
+    编写header与footer
+        
         
