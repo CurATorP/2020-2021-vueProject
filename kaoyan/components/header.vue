@@ -50,6 +50,10 @@ export default {
     width: 100%;
     font-size: 14px;
     justify-content: center;
+    li {
+      width: 100px;
+      text-align: center;
+    }
     a {
       color: #fff;
       padding: 0 5px;

@@ -52,5 +52,13 @@
     2nd：编写header与footer
          已完成header ：html css
          已完成footer ：html
-        
-        
+
+
+## 1109:
+    回顾:
+        运行项目 npm run dev
+        安装工具包 npm install (packageName)
+        删除工具包 npm uninstall (packageName) 
+        webpack 编译 assets 目录
+
+    
