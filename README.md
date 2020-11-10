@@ -61,4 +61,6 @@
         删除工具包 npm uninstall (packageName) 
         webpack 编译 assets 目录
 
-    
+    已完成：footer-css样式
+
+    完成内部浏览模块一
