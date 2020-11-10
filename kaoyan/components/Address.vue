@@ -6,7 +6,7 @@
     <div class="allAddress">
       <ul>
         <div v-for="(item, index) in Addresslist" :key="index" class="test">
-          <li v-if="currentAddress === item" style="background-color: #1787e0;">
+          <li v-if="currentAddress === item" style="background-color:#6fb1e7;color:#696969;">
             {{ item }}
           </li>
           <li v-else class="newAdd" @click="currentAddress=item">
@@ -87,7 +87,7 @@ export default {
     }
       .newAdd:hover {
         color: #1787e0;
-        background: rgba($color: #ababab9c, $alpha: 3.0);
+        background: rgba($color: #d6d6d6, $alpha: 3.0);
       }
     }
   }
