@@ -1,6 +1,6 @@
 <template>
-  <div id="foorter">
-    <div class="footer-left">
+  <div id="footer">
+    <div class="foot-left">
 
       <ul class="youqin">
         <li v-for="(item, index) in youqin" :key="index">
@@ -17,7 +17,7 @@
       </div>
 
     </div>
-    <div class="footer-right">
+    <div class="foot-right">
       <div class="weixin">
         <img :src="contact.path" alt="">
         <p>{{ contact.name }}</p>
@@ -64,72 +64,52 @@
 
 </script>
 
-<style lang='scss'>
-  #foorter {
-    display: flex;
-    background: #282828;
-    color: #ababab;
-    padding: 20px;
-    box-sizing: border-box;
-    position: fixed;
-    font-size: 14px;
-    height: 198px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    .footer-left {
-      flex-grow: 6;
-      margin-left: 100px;
-
-      a {
-        color: #ababab;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-
-      .youqin {
-        display: flex;
-        margin-bottom: 15px;
-
-        li {
-          margin-right: 20px;
-        }
-      }
-
-      .copy {
-        p {
-          margin-bottom: 15px;
-        }
-      }
+<style lang="scss">
+#footer {
+  height: 200px;
+  background: #282828;
+  color: #ababab;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 30px;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.foot-left {
+  flex-grow: 6;
+  margin-left: 100px;
+  a {
+    color:#ababab;
+    &:hover {
+      text-decoration: underline;
     }
-
-    .footer-right {
-      flex-grow: 5;
-      
-      .weixin {
-        position: fixed;
-        right: 120px;
-        img {
-          height: 80px;
-          width: 80px;
-        }
-
-        p {
-          width: 80px;
-          text-align: center;
-        }
-      }
-
-      .kefu {
-        margin-top: 10px;
-        position: fixed;
-        right: 120px;
-        bottom: 55px;
-      }
+       //&是父元素
+  }
+  .youqin {
+    display: flex;
+    margin-bottom: 15px;
+    li {
+      margin-left: 15px;
     }
   }
-
+}
+.foot-right {
+  flex-grow: 0;
+  margin-right: 100px;
+  .weixin {
+    text-align: center;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  p .kefu {
+    margin-top: 10px;
+    text-align: center;
+  }
+}
 </style>

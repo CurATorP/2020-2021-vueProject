@@ -138,6 +138,7 @@
       height: 60px;
       line-height: 60px;
       display: flex;
+      // left: 100px;
       border-bottom: 3px solid #1787e0;
       margin-bottom: 20px;
 
@@ -151,7 +152,7 @@
       }
 
       .part-right {
-        position: fixed;
+        position: relative;
         right: 100px;
         width: 810px;
         float: right;
