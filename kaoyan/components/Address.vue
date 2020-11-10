@@ -46,8 +46,27 @@ export default {
   color:  #1787e0;
   text-align: center;
 }
+.currentAdd:hover + .allAddress{
+  width: 380px;
+  height: 230px;
+  display: inline-flex;
+  margin-left: 50px;
+  border-top: 1px #ababab solid;
+  .test {
+    width: 60px;
+    height: 18px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    & li {
+      color: #ababab;
+      text-align: center;
+    }
+  }
+}
 .allAddress {
-  & {
+  display: none;
+  &:hover {
     width: 380px;
     height: 230px;
     display: inline-flex;
