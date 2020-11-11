@@ -133,7 +133,7 @@
 <style lang='scss'>
     
   .module-part {
-      
+      position: relative;
     .part-head {
       height: 60px;
       line-height: 60px;
