@@ -42,6 +42,10 @@
           {
             name: 'NuxtJs',
             url: 'https://zh.nuxtjs.org/'
+          },
+          {
+            name: '🔪🐘',
+            url: 'https://bing.com/'
           }
         ],
         zhuban: {

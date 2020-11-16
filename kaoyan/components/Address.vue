@@ -43,8 +43,9 @@ export default {
   width: 50px;
   height: 25px;
   margin-left: 50px;
-  color:  #1787e0;
+  color:  #ffffff;
   text-align: center;
+  background-color: #ababab;
 }
 .currentAdd:hover + .allAddress{
   width: 380px;
