@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
+
 <body>
   <div id="app">
     {{ currenttime }}
@@ -17,17 +19,38 @@
         timer: null,
         currenttime: new Date()
       },
-      mounted () {
+      mounted() {
         this.timer = setInterval(() => {
           this.currenttime = new Date()
         }, 1000)
       },
-      beforeDestroy () {
+      beforeDestroy() {
         if (this.timer) {
           clearInterval(this.timer)
         }
       }
     })
   </script>
+  <script type="text/javascript" charset="utf-8" src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.0.min.js">
+  </script>
+  <script type="text/javascript" charset="utf-8" src="https://files.cnblogs.com/files/liuzhou1/L2Dwidget.min.js">
+  </script>
+  <script type="text/javascript">
+    L2Dwidget.init({
+      "display": {
+        "superSample": 2,
+        "width": 200,
+        "height": 400,
+        "position": "right",
+        "hOffset": 0,
+        "vOffset": 0
+      }
+    });
+  </script>
 </body>
+<style>
+  #live2dcanvas {
+    border: 0 !important;
+}
+</style>
 </html>

@@ -1,14 +1,11 @@
 <template>
   <div class="container">
-    <Model />
-    <Address />
+   
     <List />
   </div>
 </template>
 
 <script>
-import Model from '@/components/model'
-import Address from '@/components/Address'
 import List from '@/components/List'
 export default {
   components: {

@@ -82,6 +82,7 @@
   bottom: 0;
   left: 0;
   right: 0;
+  margin-top: 100px;
 }
 .foot-left {
   flex-grow: 6;
