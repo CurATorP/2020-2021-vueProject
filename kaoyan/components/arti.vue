@@ -1,11 +1,11 @@
 <template>
   <div id="article">
-    <div class="arti_path">
+    <!-- <div class="arti_path">
       <el-breadcrumb separator=">">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>文章详情</el-breadcrumb-item>
       </el-breadcrumb>
-    </div>
+    </div> -->
     <div class="arti_title">
       <h1>{{ artiTitle }}</h1>
       <span class="arti_date">
@@ -40,7 +40,7 @@
     float: left;
     width: 780px;
     margin-left: 100px;
-    margin-top: 100px;
+    margin-top: 50px;
     color: #606266;
     min-height: 700px;
   }
@@ -48,16 +48,22 @@
   .arti_title {
     color: black;
     padding-bottom: 10px;
+    
     border-bottom: 1px solid #ddd;
+  }
+  .arti_title h1 {
+    margin-bottom: 20px;
   }
 
   .arti_date,
   .arti_from {
-    
+    margin-right: 10px;
+    margin-left: 20px;
     color: #999;
   }
 
   .arti_content {
+    text-indent: 2em;
     margin-top: 20px;
     text-align: left;
   }

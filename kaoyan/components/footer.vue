@@ -49,7 +49,7 @@
           }
         ],
         zhuban: {
-          name: '18级求知工程项目实践班',
+          name: '18级求知班工程项目实践',
           url: 'http://www.bing.com/'
         },
         copyright: '@2020-2030 18求知班',

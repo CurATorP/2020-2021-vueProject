@@ -53,7 +53,7 @@
     position: relative;
     float: right;
     width: 350px;
-    margin-top: 150px;
+    margin-top: 100px;
     margin-right: 100px;
   }
 

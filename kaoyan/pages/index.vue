@@ -5,6 +5,7 @@
     <div class="clearfix"></div>
     <nuxt-link to="/datalist">List-router</nuxt-link>
     <nuxt-link to="/article">article-router</nuxt-link>
+    <nuxt-link to="/dblist">dblist-router</nuxt-link>
   </div>
 </template>
 

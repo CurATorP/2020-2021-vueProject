@@ -1,11 +1,11 @@
 <template>
   <div id="list">
-    <div class="list_path">
+    <!-- <div class="list_path">
       <el-breadcrumb separator=">">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>考研信息</el-breadcrumb-item>
       </el-breadcrumb>
-    </div>
+    </div> -->
     <div class="list_contents">
       <ul>
         <div v-for="(item, index) in contents" :key="index"  class="list_col">
@@ -69,7 +69,7 @@
     float: left;
     width: 780px;
     margin-left: 100px;
-    margin-top: 100px;
+    margin-top: 50px;
     color:#606266;
     a:hover{
         color: #1787e0;
@@ -77,9 +77,9 @@
     a{
         color: #606266;
     }
-    .list_path {
-      height: 20px;
-    }
+    // .list_path {
+    //   height: 20px;
+    // }
     .list_contents {
         margin-bottom: 50px;
     }
