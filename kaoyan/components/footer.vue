@@ -44,7 +44,7 @@
             url: 'https://zh.nuxtjs.org/'
           },
           {
-            name: '🔪🐘',
+            name: 'Bing',
             url: 'https://bing.com/'
           }
         ],

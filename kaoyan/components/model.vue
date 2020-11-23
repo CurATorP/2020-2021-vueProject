@@ -138,14 +138,14 @@
       height: 60px;
       line-height: 60px;
       display: flex;
-      // left: 100px;
+      left: 100px;
       border-bottom: 3px solid #1787e0;
       margin-bottom: 20px;
 
       .part-title {
         flex-grow: 5;
         font-size: 26px;
-
+        left: 100px;
         i {
           margin-right: 15px;
         }

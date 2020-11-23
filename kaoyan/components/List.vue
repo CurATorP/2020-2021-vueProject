@@ -69,6 +69,7 @@
     width: 800px;
     position: relative;
     margin-left: 100px;
+    margin-top: 100px;
     color:#606266;
     a:hover{
         color: #1787e0;

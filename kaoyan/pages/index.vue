@@ -2,7 +2,7 @@
   <div class="container">
     <Model />
     <Address />
-    <List />
+    <nuxt-link to="/datalist">Test-router</nuxt-link>
   </div>
 </template>
 

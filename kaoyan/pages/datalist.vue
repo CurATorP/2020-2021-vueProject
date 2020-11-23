@@ -2,6 +2,7 @@
   <div class="container">
    
     <List />
+    <nuxt-link to="/">Test-router</nuxt-link>
   </div>
 </template>
 
@@ -9,8 +10,6 @@
 import List from '@/components/List'
 export default {
   components: {
-    Model,
-    Address,
     List
   },
   data () {
