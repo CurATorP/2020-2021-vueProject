@@ -1,7 +1,7 @@
 <template>
   <div id="list">
     <div class="list_path">
-      <el-breadcrumb separator="/">
+      <el-breadcrumb separator=">">
         <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
         <el-breadcrumb-item>考研信息</el-breadcrumb-item>
       </el-breadcrumb>
@@ -66,8 +66,8 @@
 
 <style lang="scss">
   #list {
-    width: 800px;
-    position: relative;
+    float: left;
+    width: 780px;
     margin-left: 100px;
     margin-top: 100px;
     color:#606266;

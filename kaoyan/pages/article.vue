@@ -1,7 +1,7 @@
 <template>
   <div class="container">
    
-    <List />
+    <Arti />
     <SidePart />
     <div class="clearfix"></div>
     
@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import List from '@/components/List'
+import Arti from '@/components/Arti'
 import SidePart from '@/components/sidePart'
 export default {
   components: {
-    List,
+    Arti,
     SidePart
   },
   data () {
@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style>
 .clearfix{
   clear: both;
 }

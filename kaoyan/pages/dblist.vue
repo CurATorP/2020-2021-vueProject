@@ -1,20 +1,17 @@
 <template>
   <div class="container">
-    <Model />
-    <Address />
+    <Selecter />
     <div class="clearfix"></div>
-    <nuxt-link to="/datalist">List-router</nuxt-link>
-    <nuxt-link to="/article">article-router</nuxt-link>
+    
   </div>
 </template>
 
 <script>
-import Model from '@/components/model'
-import Address from '@/components/Address'
+import Selecter from '@/components/selecter'
+
 export default {
   components: {
-    Model,
-    Address,
+    Selecter,
   },
   data () {
     return {}
