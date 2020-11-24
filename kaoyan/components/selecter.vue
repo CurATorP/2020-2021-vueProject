@@ -81,7 +81,7 @@
     color: black;
     border: none;
     background-color: white;
-    padding: 15px 18px;
+    padding: 15px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;

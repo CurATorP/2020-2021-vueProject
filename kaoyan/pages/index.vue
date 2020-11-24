@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <Model />
-    <Address />
+    
     <div class="clearfix"></div>
     <nuxt-link to="/datalist">List-router</nuxt-link>
     <nuxt-link to="/article">article-router</nuxt-link>

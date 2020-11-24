@@ -1,5 +1,6 @@
 <template>
   <div id="header">
+    <Address />
     <ul>
       <li v-for="(item, index) in navlist" :key="index">
         <router-link :to="item.url">{{ item.name }}</router-link>
