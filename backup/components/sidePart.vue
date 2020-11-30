@@ -24,21 +24,21 @@
   export default {
     data() {
       return {
-        title: 'never gonna give you up',
+        title: 'Wonderful tonight',
         sideContent: [{
-            data: 'never gonna give you up',
+            data: 'Wonderful tonight',
             url: ''
           },
           {
-            data: 'never gonna give you up',
+            data: 'Wonderful tonight',
             url: ''
           },
           {
-            data: 'never gonna give you up',
+            data: 'Wonderful tonight',
             url: ''
           },
           {
-            data: 'never gonna give you up',
+            data: 'Wonderful tonight',
             url: ''
           },
         ]

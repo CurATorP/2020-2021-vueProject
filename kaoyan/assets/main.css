@@ -10,3 +10,11 @@ li{
 a{
     text-decoration: none;
 }
+
+.container{
+    min-height: 800px;
+}
+/* 
+.clearfix {
+    clear: both;
+} */

@@ -31,9 +31,9 @@
   export default {
     data() {
       return {
-        flKind: ['全部', '政治1', '政治2', '政治3', '政治4', '政治5', '政治6', '政治7'],
-        flType: ['全部', '讲义/笔记1', '讲义/笔记2', '讲义/笔记3', '讲义/笔记4', '讲义/笔记5', ],
-        flYear: ['全部', '2021年1', '2021年2', '2021年3', '2021年4', ],
+        flKind: ['全部', '政治','英语', '数学', '专业课', '专业硕士', '外语类/小语种', '复试/面试', '四六级'],
+        flType: ['全部', '讲义/笔记', '专业课真题', '试题/习题', '复习备考', '考研大纲', ],
+        flYear: ['全部', '2021年', '2020年', '2019年', '其他', ],
         currentKind: '全部',
         currentType: '全部',
         currentYear: '全部'
@@ -81,7 +81,7 @@
     color: black;
     border: none;
     background-color: white;
-    padding: 15px 15px;
+    padding: 10px 15px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -92,16 +92,19 @@
   .fl_kind button:hover {
     background-color: #1787e0;
     color: white;
+    cursor: pointer;
   }
 
   .fl_type button:hover {
     background-color: #1787e0;
     color: white;
+    cursor: pointer;
   }
 
   .fl_year button:hover {
     background-color: #1787e0;
     color: white;
+    cursor: pointer;
   }
 
 </style>

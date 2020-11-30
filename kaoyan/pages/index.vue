@@ -1,31 +1,25 @@
 <template>
   <div class="container">
     <Model />
-    
-    <div class="clearfix"></div>
-    <nuxt-link to="/datalist">List-router</nuxt-link>
-    <nuxt-link to="/article">article-router</nuxt-link>
-    <nuxt-link to="/dblist">dblist-router</nuxt-link>
   </div>
 </template>
 
 <script>
-import Model from '@/components/model'
-import Address from '@/components/Address'
+import Model from '@/components/Model'
 export default {
   components: {
-    Model,
-    Address,
+    Model
   },
   data () {
     return {}
   },
+  mounted () {},
   methods: {}
 }
 </script>
 
 <style lang="scss">
-.clearfix{
-  clear: both;
+li {
+  color: red;
 }
 </style>

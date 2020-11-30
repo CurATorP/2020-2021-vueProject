@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <Addr />
+    <Address />
     <ul>
       <li v-for="(item, index) in navlist" :key="index">
         <router-link :to="item.url">{{ item.name }}</router-link>
@@ -10,33 +10,33 @@
 </template>
 
 <script>
-import Addr from '@/components/Addr'
+import Address from '@/components/Address'
 export default {
   components: {
-    Addr
+    Address
   },
   data () {
     return {
       navlist: [
         {
-          name: '首页',
-          url: '/'
-        },
-        {
           name: '考研资料',
-          url: '/timu'
+          url: '/datalist'
         },
         {
           name: '院校分析',
-          url: '/school'
+          url: ''
         },
         {
           name: '成都学院',
-          url: '/cduestc'
+          url: 'http://www.cduestc.cn/'
         },
         {
           name: '考研圈',
-          url: '/bbs'
+          url: ''
+        },
+        {
+            name: '考研资讯',
+            url: 'http://www.bing.com/'
         }
       ]
     }
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang='scss'>
 #header {
   height: 50px;
   line-height: 50px;
@@ -55,9 +55,13 @@ export default {
     width: 100%;
     font-size: 14px;
     justify-content: center;
+    li {
+      width: 100px;
+      text-align: center;
+    }
     a {
       color: #fff;
-      padding: 0 15px;
+      padding: 0 5px;
       display: block;
       &:hover {
         background: #1271BC;

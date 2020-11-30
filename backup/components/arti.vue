@@ -25,10 +25,11 @@
   export default {
     data() {
       return {
-        artiTitle: 'Never gonna give you up',
+        artiTitle: 'Wonderful Tonight',
         artiDate: '2020/11/23',
-        artiFrom: 'Bing',
-        artiContent: 'Were no strangers to love,You know the rules and so do i,A full commitments what Im thinking of,You wouldnt get this from any other guy,I just wanna tell you how Im feeling,Gotta make you understand, never gonna give you up,Never gonna let you down,Never gonna run around and desert you,Never gonna make you cry,Never gonna say goodbye,Never gonna tell a lie and hurt you'
+        artiFrom: 'Eric Clapton',
+        artiContent: 'It s late in the evening.She s wondering what clothes to wear.She puts on her make up,and brushes her long blond hair.And then she asks me:"Do I look allright?"And I say:"Yes, you look wonderful tonight."We go to a party,and everyone turns to see.This beautiful ladyis walking around with me.And then she asks me:"Do you feel allright?"And I say:"Yes, I feel wonderful tonight."'
+
       }
     }
   }

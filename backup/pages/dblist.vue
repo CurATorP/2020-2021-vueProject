@@ -10,7 +10,7 @@
     
     <Selecter />
     <div class="clearfix"></div>
-    <List />
+    <DataList />
     <SidePart />
     <div class="clearfix"></div>
   </div>
@@ -18,12 +18,12 @@
 
 <script>
   import Selecter from '@/components/selecter'
-  import List from '@/components/List'
+  import DataList from '@/components/DataList'
   import SidePart from '@/components/sidePart'
   export default {
     components: {
       Selecter,
-      List,
+      DataList,
       SidePart
     },
     data() {
