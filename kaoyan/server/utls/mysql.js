@@ -19,7 +19,7 @@ class MysqlQuery {
         if (err) {
           reject(err)
         } else {
-          consola.info('数据库连接成功！')
+          consola.info('DB connection SUCCESS！')
           connection.query(sqlstatement, args, (err, rows) => {
             if (err) {
               reject(err)

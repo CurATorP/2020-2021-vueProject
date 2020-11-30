@@ -7,8 +7,8 @@
         <el-breadcrumb-item><a href="/">经验心得</a></el-breadcrumb-item>
       </el-breadcrumb>
     </div>
-    <div class="title-wrap">
-      <h1>{{ title }} -- {{ id }}</h1>
+    <div class="title-wrap" v-loading="loading">
+      <h1>{{ title }}</h1>
       <div class="news-info">
         <span class="date"><i class="el-icon-date"></i> {{ date }}</span>
         <span class="orgin"><i class="el-icon-edit-outline"></i> {{ orgin }}</span>
@@ -39,10 +39,11 @@ export default {
   data () {
     return {
       id: '',
-      title: '愿你经历考研，觉得人间值得',
-      date: '2020年10月29日',
-      orgin: '中国研究生招生信息网',
-      content: `<p>宿舍里常常深夜卧谈的话题，从“我也想考研”到“我觉得我到时候也考不上”、“我考不上怎么办”... ...</p><p>从预报名开始，一批批的“考研焦虑症患者”随着考试临近，病情也加重了。有些同学在经历了前两阶段的复习后，发现学习效果并不理想，学习效率也很差。</p><p>我怎么办？我要去哪儿？我还要不要考研？每天灵魂三问。</p>`
+      title: '',
+      date: '',
+      orgin: '',
+      content: ``,
+      loading : false
     }
   },
   computed: {},
@@ -50,8 +51,31 @@ export default {
   created () {},
   mounted () {
     this.id = this.$route.params.id
+    this.getDetail()
   },
-  methods: {}
+  methods: {
+    async getDetail(){
+      this.loading = true
+      let {code , data,message} = await this.$axios.$get('/api/detail',{
+        params: {
+          id: this.$route.query.id
+        }
+      })
+      this.loading = false
+      if(!code) {
+        this.id = data.id
+        this.title = data.title
+        this.date = data.date
+        this.orgin = data.orgin
+        this.content = data.content
+      }else{
+        this.$message({
+            type: 'error',
+            message
+        })
+      }
+    }
+  }
 }
 </script>
 

@@ -9,19 +9,20 @@
     </div>
     <section class="wrap-con">
       <div class="wrap-list">
-        <ul class="list-con">
+        <ul class="list-con" v-loading="loading">
           <li v-for="item in list" :key="item.id">
-            <router-link :to="item.url">{{ item.name }}</router-link>
+            <router-link :to="'/post/'+$route.query.type + '?id=' +item.id">{{ item.title }}</router-link>
             <span class="date">{{ item.date }}</span>
           </li>
         </ul>
-        <el-pagination @current-change="handleCurrentChange" :current-page.sync="page.page" :page-size="20" layout="prev, pager, next, jumper" :total="page.total"></el-pagination>
+        <el-pagination @current-change="handleCurrentChange" :current-page.sync="page.page" :page-size="page.size" layout="prev, pager, next, jumper" :total="page.total"></el-pagination>
       </div>
       <div class="side-con">
         <News title="考研新闻" />
         <News title="国家政策" />
         <News title="国家政策" />
         <News title="国家政策" />
+        <!-- <News :title="{title: '考研新闻',type: ' gjzc'}"/> -->
       </div>
     </section>
   </div>
@@ -39,93 +40,47 @@ export default {
         page: 1,
         total: 100
       },
-      list: [
-        {
-          id: '1231',
-          name: '愿你经历考研，觉得人间值得',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '1212a31',
-          name: '送你一张时间表，为暑假考研助力！',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '1231231',
-          name: '考研是场马拉松，抓住复习“黄金期”',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312asd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312aasd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312asdfsfsd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '123dfsd12asd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312as474d31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312sdasd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312asxbd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312azxsd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312a123sd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312a123000sd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312a18823sd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312a177723sd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }
-      ]
+      list: [],
+      loading : false
     }
   },
-  mounted () {},
+  mounted () {
+    this.getPost()
+  },
   methods: {
     handleCurrentChange (page) {
       console.log(page)
+      this.getPost()
+    },
+    async getPost() {
+        this.loading = true
+        let {
+          code,
+          data,
+          message
+        } = await this.$axios.$get('/api/list', {
+          params: {
+            type:this.$route.query.type,
+            page:this.page.page,
+            limit:this.page.size
+          }
+        })
+        this.loading = false
+        console.log(code, data, message)
+        if (!code) {
+          this.list = data.list
+          this.page.total = data.total
+        } else {
+          this.list = []
+          this.page.total = 0
+          this.$message({
+            type: 'error',
+            message
+          })
+        }
+      }
     }
   }
-}
 </script>
 
 <style lang='scss' scoped>

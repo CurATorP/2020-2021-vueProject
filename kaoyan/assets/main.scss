@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(143, 136, 136);
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  min-height: 1000px;
+}
+
+/* 面包屑导航样式 */
+.nav-crummb {
+  margin: 40px 0;
+  font-size: 14px;
+  display: flex;
+  i {
+    margin-right: 10px;
+    font-size: 20px;
+  }
+  .el-breadcrumb {
+    line-height: 20px;
+  }
+}
+
+/* 文章内容样式 */
+
+#content {
+  line-height: 32px;
+  p {
+    text-indent: 2em;
+  }
+}
+
+/* 列表样式 */
+.list-con {
+  li {
+    height: 50px;
+    line-height: 50px;
+    // border-bottom: 1px solid #dcdcdc;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    --scale: 0;
+    a {
+      color: #4c4c4d;
+    }
+    &:hover {
+      --scale: 1;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #dcdcdc;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background-color: #1787e0;
+      transform: scaleX(var(--scale));
+      transition: transform .5s cubic-bezier(.22,1,.32,1) .1s;
+      transform-origin: left center;
+    }
+  }
+}
+.el-pagination {
+  margin: 20px 0;
+}
+
+.show-item {
+  margin: 30px 0;
+  overflow: hidden;
+  .title {
+    padding: 5px 0 5px 10px;
+    border-left: 4px solid #1787e0;
+    position: relative;
+    font-size: 20px;
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 1px;
+      bottom: -5px;
+      background-color: #e5e5e5;
+    }
+  }
+  .content {
+    margin: 10px 0;
+    text-indent: 2em;
+    line-height: 32px;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+}

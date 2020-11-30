@@ -91,7 +91,15 @@
     主要差异：
         1：选择器前方的红色装饰
         2：地址选择器的大小处理和排版差异
-
+    main.css变动 需要重新配置为同路径下的scss
     开始配置接口
     参看server下内容
     所需数据库位于static下
+
+    在model中添加相应getPost方法
+    post中添加相应方法
+
+    在List中添加相应getPost方法
+    
+    在_id中添加相应getDetail方法
+    post中添加相应方法

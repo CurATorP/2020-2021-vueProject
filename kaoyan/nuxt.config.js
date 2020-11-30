@@ -24,7 +24,7 @@ module.exports = {
   */
   css: [
     'element-ui/lib/theme-chalk/index.css',
-    '@/assets/main.css'
+    '@/assets/main.scss'
   ],
   /*
   ** Plugins to load before mounting the App
