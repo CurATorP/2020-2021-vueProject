@@ -14,7 +14,7 @@
       <div class="content-item" v-loading="jyjl.loading">
         <div class="con-title">
           <h4>经验交流</h4>
-          <a href="#" class="more" v-if="jyjl.total > 10">更多<i class="el-icon-plus"></i></a>
+          <a href="#" class="more" v-if="jyjl.total > 2">更多<i class="el-icon-plus"></i></a>
         </div>
         <ul class="con-list">
           <li v-for="item in jyjl.list" :key="item.id">
@@ -25,7 +25,7 @@
       <div class="content-item number" v-loading="fsbk.loading">
         <div class="con-title">
           <h4>复试备考</h4>
-          <a href="#" class="more" v-if="fsbk.total > 10">更多<i class="el-icon-plus"></i></a>
+          <a href="#" class="more" v-if="fsbk.total > 2">更多<i class="el-icon-plus"></i></a>
         </div>
         <ul class="con-list">
           <li v-for="item in fsbk.list" :key="item.id">
@@ -36,7 +36,7 @@
       <div class="content-item cate" v-loading="tjzn.loading">
         <div class="con-title">
           <h4>调剂指南</h4>
-          <a href="#" class="more" v-if="tjzn.total > 10">更多<i class="el-icon-plus"></i></a>
+          <a href="#" class="more" v-if="tjzn.total > 2">更多<i class="el-icon-plus"></i></a>
         </div>
         <ul class="con-list">
           <li v-for="item in tjzn.list" :key="item.id">
@@ -92,9 +92,32 @@ export default {
   },
   computed: {},
   watch: {},
-  created () {},
-  mounted () {},
-  methods: {}
+  created () {
+    this.getPost('jyjl')
+    this.getPost('fsbk')
+    this.getPost('tjzn')
+  },
+  mounted () {
+    
+  },
+  methods: {
+    async getPost (type){
+      this[type].loading = true
+      let { code, data , message } = await this.$axios.$get('/api/list',{
+        params :{ type }
+      })
+      this[type].loading = false
+      console.log(code,data,message)
+      if(!code){
+        this[type].list = data.list
+        this[type].total = data.total
+      }else{
+        this[type].list = []
+        this[type].total = 0
+        this.$message({ type:'error',message})
+      }
+    }
+  }
 }
 </script>
 
@@ -131,7 +154,7 @@ export default {
 .part-content {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 .content-item {

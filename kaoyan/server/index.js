@@ -3,6 +3,9 @@ import consola from 'consola'
 import { Nuxt, Builder } from 'nuxt'
 const app = express()
 
+//路由
+import postRouter from './routers/post'
+
 // Import and Set Nuxt.js options
 import config from '../nuxt.config.js'
 config.dev = process.env.NODE_ENV !== 'production'
@@ -19,6 +22,8 @@ async function start () {
     const builder = new Builder(nuxt)
     await builder.build()
   }
+  //注释路由
+  app.use('/api/',postRouter)
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

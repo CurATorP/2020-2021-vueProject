@@ -13,8 +13,15 @@ export default {
   data () {
     return {}
   },
-  mounted () {},
-  methods: {}
+  mounted () {
+    this.getTest()
+  },
+  methods: {
+    async getTest() {
+      let result =await this.$axios.$get('/api/test')
+      console.log(result)
+    }
+  }
 }
 </script>
 
