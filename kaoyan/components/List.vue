@@ -18,11 +18,12 @@
         <el-pagination @current-change="handleCurrentChange" :current-page.sync="page.page" :page-size="page.size" layout="prev, pager, next, jumper" :total="page.total"></el-pagination>
       </div>
       <div class="side-con">
-        <News title="考研新闻" />
-        <News title="国家政策" />
-        <News title="国家政策" />
-        <News title="国家政策" />
-        <!-- <News :title="{title: '考研新闻',type: ' gjzc'}"/> -->
+        <!-- <News title="考研新闻" /> -->
+        <News :title="{title: '考研新闻',type: 'jyjl'}"/>
+        <!-- <News title="国家政策" /> -->
+        <!-- <News title="国家政策" />
+        <News title="国家政策" /> -->
+        
       </div>
     </section>
   </div>
@@ -60,7 +61,7 @@ export default {
           message
         } = await this.$axios.$get('/api/list', {
           params: {
-            type:this.$route.query.type,
+            type:this.$type,
             page:this.page.page,
             limit:this.page.size
           }

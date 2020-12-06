@@ -1,9 +1,9 @@
 <template>
   <div class="box-card">
-    <h3 class="title">{{ title }}</h3>
-    <ul class="list-item">
+    <h3 class="title">{{ title.title }}</h3>
+    <ul class="list-item" v-loading="loading">
       <li @mousemove="handleMousemove($event)" v-for="item in list" :key="item.id">
-        <router-link :to="item.url">{{ item.name }}</router-link>
+        <router-link :to="'/post/'+$route.query.type + '?id=' +item.id">{{ item.title }}</router-link>
       </li>
     </ul>
   </div>
@@ -20,36 +20,47 @@ export default {
   components: {},
   data () {
     return {
-      list: [
-        {
-          id: '1231',
-          name: '愿你经历考研，觉得人间值得',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '1212a31',
-          name: '送你一张时间表，为暑假考研助力！',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '1231231',
-          name: '考研是场马拉松，抓住复习“黄金期”',
-          url: '',
-          date: '2020-10-29'
-        }
-      ]
+      list: [],
+      loading: false
     }
   },
   computed: {},
   created () {},
-  mounted () {},
+  mounted () {
+    this.getPost()
+  },
   methods: {
     handleMousemove (e) {
       const x = e.pageX - e.target.offsetLeft
       const y = e.pageY - e.target.offsetTop
       e.target.style.setProperty('--x', `${x}px`)
       e.target.style.setProperty('--y', `${y}px`)
-    }
+    },
+    async getPost() {
+        this.loading = true
+        let {
+          code,
+          data,
+          message
+        } = await this.$axios.$get('/api/list', {
+          params: {
+            type:this.title.$type,
+            page:1,
+            limit:5
+          }
+        })
+        this.loading = false
+        console.log(code, data, message)
+        if (!code) {
+          this.list = data.list
+        } else {
+          this.list = []
+          this.$message({
+            type: 'error',
+            message
+          })
+        }
+      }
   }
 }
 </script>

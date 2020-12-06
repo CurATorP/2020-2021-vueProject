@@ -11,7 +11,7 @@
       <h1>{{ title }}</h1>
       <div class="news-info">
         <span class="date"><i class="el-icon-date"></i> {{ date }}</span>
-        <span class="orgin"><i class="el-icon-edit-outline"></i> {{ orgin }}</span>
+        <span class="orgin"><i class="el-icon-edit-outline"></i> {{ origin }}</span>
       </div>
     </div>
     <div class="content-wrap">
@@ -41,7 +41,7 @@ export default {
       id: '',
       title: '',
       date: '',
-      orgin: '',
+      origin: '',
       content: ``,
       loading : false
     }
@@ -66,7 +66,7 @@ export default {
         this.id = data.id
         this.title = data.title
         this.date = data.date
-        this.orgin = data.orgin
+        this.origin = data.origin
         this.content = data.content
       }else{
         this.$message({

@@ -24,7 +24,7 @@ router.get('/list',(req,res,next) => {
     sql = 'SELECT id, date,title,type FROM `post` WHERE type = ? LIMIT ?, ?'
     totalSQL = 'SELECT COUNT(*) as total FROM `post` WHERE type = ?'
   }
-  sqlQuery.query(sql, type ? [type, (page - 1)*limit*1,page*limit*1] : [(page - 1)*limit*1,page*limit*1]).then(data=>{
+  sqlQuery.query(sql, type ? [type, (page - 1)*limit,limit * 1] : [(page - 1)*limit*1,limit*1]).then(data=>{
     // consola.info(data)
     if(data.length){
       sqlQuery.query(totalSQL , type ? [type] : []).then(result =>{
