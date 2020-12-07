@@ -9,18 +9,18 @@ const router = express.Router()
 router.get('/info', (req, res, next) => {
     let { code } = req.query
     if (code === '' || code === '#') {
-      res.json({ code: 1, data: '', message: '缺少参数'});
+      res.json({ code: 1, data: '', message: 'LACK OF PARAMS'});
     }
     sqlQuery.query('select * from `faculty` where code = ?', [code]).then(data =>{
-      consola.info(data)
+      // consola.info(data)
       if(data.length) {
-        res.json({ code: 0, data: data, message:'查询成功'})
+        res.json({ code: 0, data: data, message:'SEARCH SUCCESS'})
       }
       else {
-        res.json({ code: 0, data: [], message:'查询成功'})
+        res.json({ code: 0, data: [], message:'SEARCH SUCCESS'})
       }
     }).catch(error=> {
-      res.json({ code: 1, data: '', message: '查询失败'});
+      res.json({ code: 1, data: '', message: 'SEARCH ERROR'});
     })
   })
   

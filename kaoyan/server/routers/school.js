@@ -22,17 +22,17 @@ router.get('/list', (req, res, next) => {
     }
     sqlQuery.query(sql, search ? [search, page - 1, page * limit] : [page - 1, page * limit]).then(
       data => {
-        consola.info(data)
+        // consola.info(data)
         res.json({
           code: 0,
           data: data,
-          message: '查询成功'
+          message: 'SEARCH SUCCESS'
         });
       }).catch(error => {
       res.json({
         code: 1,
         data: '',
-        message: '查询失败'
+        message: 'SEARCH ERROR'
       })
     })
     // res.json({ code: 0, data: '',message: '获取成功'})
@@ -43,12 +43,12 @@ router.get('/list', (req, res, next) => {
   router.get('/resume',(req, res, next) => {
     let { code } = req.query
     if (code === '' || code === '#') {
-      res.json({ code: 1, data: '', message: '缺少参数'});
+      res.json({ code: 1, data: '', message: 'LACK OF PARAMS'});
     }
     sqlQuery.query('select leader,resume,surround,weburl,graduate from `school` where code = ?', [code]).then(data =>{
-      res.json({ code: 0, data: data.length ? data[0]:[], message:'成功'})
+      res.json({ code: 0, data: data.length ? data[0]:[], message:'SEARCH SUCCESS'})
     }).catch(error=> {
-      res.json({ code: 1, data: '', message: '查询失败'});
+      res.json({ code: 1, data: '', message: 'SEARCH FAIL'});
     })
   })
 export default router
