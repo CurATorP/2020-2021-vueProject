@@ -2,7 +2,7 @@
   <div class="sch-list-page container">
     <div class="sch-wrap">
       <ul class="schlist">
-        <li @click="handleSelSch(item)" :class="{'sel': currentsch === item.name}" v-for="item in school" :key="item.id"><i class="el-icon-s-home" v-if="currentsch === item.name"></i>{{ item.name }}</li>
+        <li @click="handleSelSch(item)" :class="{'sel': currentsch === item.school}" v-for="item in school" :key="item.id"><i class="el-icon-s-home" v-if="currentsch === item.school"></i>{{ item.school }}</li>
       </ul>
     </div>
     <div class="sch-resume">
@@ -11,19 +11,30 @@
         <a :class="{ 'sel': item.code === currentModel }" v-for="item in infolist" :key="item.id" @click="currentModel = item.code" href="javascript:void(0);">{{ item.name }}</a>
       </div>
     </div>
-    <div class="resume-content">
-      <component :is="currentModel" :id="school.filter(item => item.name === currentsch)[0]['id']"></component>
+    <div v-if="school.length" class="resume-content">
+      <component :is="currentModel" :code="school.filter(item => item.school === currentsch)[0]['code']"></component>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import resume from '@/components/school/resume'
 import faculty from '@/components/school/faculty'
 import professional from '@/components/school/professional'
 import rule from '@/components/school/rule'
 import policy from '@/components/school/policy'
+
 export default {
+  async asyncData () {
+    let result = await axios.get('http://127.0.0.1:3000/api/school/list')
+    console.log(result.data)
+    if (!result.data.code) {
+      return { school: result.data.data }
+    } else {
+      return { school: [] }
+    }
+  },
   components: {
     resume, faculty, professional, rule, policy
   },
@@ -32,7 +43,7 @@ export default {
       currentsch: '四川大学',
       school: [
         {
-          id: '123',
+          id: '10610',
           name: '四川大学',
           url: ''
         }, {
@@ -101,7 +112,7 @@ export default {
   mounted () {},
   methods: {
     handleSelSch (item) {
-      this.currentsch = item.name
+      this.currentsch = item.school
     }
   }
 }

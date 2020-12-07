@@ -1,9 +1,9 @@
 <template>
   <div class="box-card">
-    <h3 class="title">{{ title.title }}</h3>
-    <ul class="list-item" v-loading="loading">
+    <h3 class="title">{{ title }}</h3>
+    <ul class="list-item">
       <li @mousemove="handleMousemove($event)" v-for="item in list" :key="item.id">
-        <router-link :to="'/post/'+$route.query.type + '?id=' +item.id">{{ item.title }}</router-link>
+        <router-link :to="'/post/'+item.type+'?id='+item.id" target="_blank">{{ item.title }}</router-link>
       </li>
     </ul>
   </div>
@@ -15,13 +15,16 @@ export default {
     title: {
       type: String,
       required: true
+    },
+    type: {
+      type: String,
+      required: true
     }
   },
   components: {},
   data () {
     return {
-      list: [],
-      loading: false
+      list: []
     }
   },
   computed: {},
@@ -36,31 +39,23 @@ export default {
       e.target.style.setProperty('--x', `${x}px`)
       e.target.style.setProperty('--y', `${y}px`)
     },
-    async getPost() {
-        this.loading = true
-        let {
-          code,
-          data,
-          message
-        } = await this.$axios.$get('/api/list', {
-          params: {
-            type:this.title.$type,
-            page:1,
-            limit:5
-          }
-        })
-        this.loading = false
-        console.log(code, data, message)
-        if (!code) {
-          this.list = data.list
-        } else {
-          this.list = []
-          this.$message({
-            type: 'error',
-            message
-          })
+    async getPost () {
+      this.loading = true
+      let { code, data, message } = await this.$axios.$get('/api/list', {
+        params: {
+          type: this.type,
+          page: 1,
+          limit: 5
         }
+      })
+      this.loading = false
+      if (!code) {
+        this.list = data.list
+      } else {
+        this.list = []
+        this.$message({ type: 'error', message })
       }
+    }
   }
 }
 </script>

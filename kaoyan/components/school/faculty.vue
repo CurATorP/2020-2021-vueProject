@@ -10,13 +10,14 @@
 <script>
 export default {
   props: {
-    id: {
+    code: {
       type: String,
       required: true
     }
   },
   components: {},
   data () {
+    // loading: false
     return {
       info: [
         {
@@ -53,9 +54,38 @@ export default {
     }
   },
   computed: {},
-  watch: {},
+  watch: {
+    code: {
+      handler (newVal, oldVal) {
+        this.getInfo()
+      },
+      immediate: true
+    }
+  },
   created () {},
-  methods: {}
+  methods: {
+    async getInfo () {
+      // this.loading = true
+      let { code, data, message } = await this.$axios.$get('/api/faculty/info', {
+        params: {
+          code: this.code
+        }
+      })
+      if (!code) {
+        this.info[0].content = data.map(item => item.fenyuan).join(',')
+        this.info[1].content = data.map(item => item.laboratory).join(',')
+        this.info[2].content = data.map(item => item.discipline).join(',')
+        this.info[3].content = data.map(item => item.degree).join(',')
+        // this.info[4].content = data.map(item => item.fenyuan).join(',') //师资力量
+        // this.info[5].content = data.map(item => item.fenyuan).join(',')//学生人数
+        // this.info[1].content = data.laboratory
+        // this.info[2].content = data.surround
+      } else {
+        this.$message({ type: 'error', message })
+      }
+      // this.loading = false
+    }
+  }
 }
 </script>
 

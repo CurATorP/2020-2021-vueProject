@@ -10,8 +10,8 @@
 <script>
 export default {
   props: {
-    id: {
-      type: String,
+    code: {
+      type: [String],
       required: true
     }
   },
@@ -38,10 +38,33 @@ export default {
     }
   },
   computed: {},
-  watch: {},
+  watch: {
+    code () {
+      this.getResume()
+    }
+  },
   created () {},
-  mounted () {},
-  methods: {}
+  mounted () {
+    this.getResume()
+  },
+  methods: {
+    async getResume () {
+      let { code, data, message } = await this.$axios.$get('/api/school/resume', {
+        params: {
+          code: this.code
+          // code: 10610
+        }
+      })
+      if (!code) {
+        this.info[0].content = data.leader
+        this.info[1].content = data.resume
+        this.info[2].content = data.surround
+        // this.$loading = true
+      } else {
+        this.$message({ type: 'error', message })
+      }
+    }
+  }
 }
 </script>
 

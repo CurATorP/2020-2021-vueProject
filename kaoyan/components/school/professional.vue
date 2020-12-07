@@ -17,8 +17,8 @@
 <script>
 export default {
   props: {
-    id: {
-      type: String,
+    code: {
+      type: [String],
       required: true
     }
   },
@@ -68,13 +68,52 @@ export default {
       ]
     }
   },
-  watch: {},
+  watch: {
+    code: {
+      handler (newVal, oldVal) {
+        this.getInfo()
+      },
+      immediate: true
+    }
+  },
   created () {},
   mounted () {},
   methods: {
     currentlist (item) {
       const arr = item.content.filter(n => n.name === item.current)
-      return arr[0].list ? arr[0].list : []
+      return (arr.length && arr[0].list) ? arr[0].list : []
+    },
+    async getInfo () {
+      // this.loading = true
+      let { code, data, message } = await this.$axios.$get('/api/faculty/info', {
+        params: {
+          code: this.code
+        }
+      })
+      if (!code) {
+        let boshiStr = data.filter(item => item.protype === 1).map(item => {
+          return {
+            id: Math.floor(Math.random() * 1000 + 1000),
+            name: item.fenyuan,
+            list: item.professional.split(',')
+          }
+        })
+        let shuoshiStr = data.filter(item => item.protype === 0).map(item => {
+          return {
+            id: Math.floor(Math.random() * 1000 + 1000),
+            name: item.fenyuan,
+            list: item.professional.split(',')
+          }
+        })
+        // console.log(str)
+        this.info[0].content = shuoshiStr
+        this.info[1].content = boshiStr
+        this.info[1].current = boshiStr.length ? boshiStr[0].name : ''
+        this.info[0].current = shuoshiStr.length ? shuoshiStr[0].name : ''
+      } else {
+        this.$message({ type: 'error', message })
+      }
+      // this.loading = false
     }
   }
 }
