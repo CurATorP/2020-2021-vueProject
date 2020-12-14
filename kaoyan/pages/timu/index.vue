@@ -24,7 +24,7 @@
           <li v-for="item in list" :key="item.id">
             <div>
               <i class="el-icon-document"></i>
-              <router-link :to="'/post/'+item.id+'?timu&id='+ item.id">{{ item.title }} <br /><span class="date">{{ item.date }}</span></router-link>
+              <router-link :to="'/post/'+item.id+'?&type=timu&id='+ item.id">{{ item.title }} <br /><span class="date">{{ item.date }}</span></router-link>
             </div>
             <p class="op">
               <el-tooltip v-if="isopen(item.url)" class="item" effect="dark" content="外链连接，点击跳转其他网站" placement="top">
