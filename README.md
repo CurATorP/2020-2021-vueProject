@@ -104,6 +104,6 @@
     在_id中添加相应getDetail方法
     post中添加相应方法
 
-## 1207:
-    单独安装axios包
-        npm install axios
+## 1207：
+    添加school.vue所对应的接口
+    yikekaoyan发生相应变化

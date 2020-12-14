@@ -24,7 +24,7 @@
           <li v-for="item in list" :key="item.id">
             <div>
               <i class="el-icon-document"></i>
-              <router-link :to="item.url">{{ item.name }} <br /><span class="date">{{ item.date }}</span></router-link>
+              <router-link :to="'/post/'+item.id+'?timu&id='+ item.id">{{ item.title }} <br /><span class="date">{{ item.date }}</span></router-link>
             </div>
             <p class="op">
               <el-tooltip v-if="isopen(item.url)" class="item" effect="dark" content="外链连接，点击跳转其他网站" placement="top">
@@ -34,10 +34,10 @@
             </p>
           </li>
         </ul>
-        <el-pagination @current-change="handleCurrentChange" :current-page.sync="page.page" :page-size="20" layout="prev, pager, next, jumper" :total="page.total"></el-pagination>
+        <el-pagination @current-change="handleCurrentChange" :current-page.sync="page.page" :page-size="page.size" layout="prev, pager, next, jumper" :total="page.total"></el-pagination>
       </div>
       <div class="right">
-        <News title="热门资料" />
+        <News title="热门资料"/>
       </div>
     </div>
   </div>
@@ -45,6 +45,7 @@
 
 <script>
 import News from '@/components/Box/news'
+import axios from 'axios'
 export default {
   components: { News },
   data () {
@@ -53,106 +54,106 @@ export default {
         {
           id: '1',
           name: '全部',
-          code: 'all'
+          code: ''
         },
         {
           id: '2',
           name: '政治',
-          code: 'zhengzhi'
+          code: '政治'
         },
         {
           id: '3',
           name: '英语',
-          code: 'yingyu'
+          code: '英语'
         },
         {
           id: '4',
           name: '数学',
-          code: 'shuxue'
+          code: '数学'
         },
         {
           id: '5',
           name: '专业课',
-          code: 'zhuanye'
+          code: '专业课'
         },
         {
           id: '6',
           name: '专业硕士',
-          code: 'shuoshi'
+          code: '专业硕士'
         },
         {
           id: '7',
           name: '外语类/小语种',
-          code: 'yuzhong'
+          code: '外语类/小语种'
         },
         {
           id: '8',
           name: '复试/面试',
-          code: 'mianshi'
+          code: '复试/面试'
         },
         {
           id: '9',
           name: '四/六级',
-          code: 'tec'
+          code: '四/六级'
         }
       ],
       typelist: [
         {
           id: '0',
           name: '全部',
-          code: 'all'
+          code: ''
         },
         {
           id: '1',
           name: '讲义/笔记',
-          code: 'jiangyi'
+          code: '讲义/笔记'
         },
         {
           id: '2',
           name: '专业课真题',
-          code: 'zhuanyezhengti'
+          code: '专业课真题'
         },
         {
           id: '3',
           name: '试题/习题',
-          code: 'shiti'
+          code: '试题/习题'
         },
         {
           id: '4',
           name: '复习备考',
-          code: 'fuxi'
+          code: '复习备考'
         },
         {
           id: '5',
           name: '考研大纲',
-          code: 'dagang'
+          code: '考研大纲'
         },
         {
           id: '6',
           name: '招生报考',
-          code: 'zhaosheng'
+          code: '招生报考'
         },
         {
           id: '7',
           name: '统考真题',
-          code: 'tongkao'
+          code: '统考真题'
         },
         {
           id: '8',
           name: '独家资料',
-          code: 'dujia'
+          code: '独家资料'
         },
         {
           id: '9',
           name: '其它资料',
-          code: 'qita'
+          code: '其它资料'
         }
       ],
       datelist: [
         {
           id: '0',
           name: '全部',
-          code: 'all'
+          code: ''
         },
         {
           id: '1',
@@ -168,106 +169,28 @@ export default {
           id: '3',
           name: '2019年',
           code: '2019'
-        },
-        {
-          id: '4',
-          name: '其他',
-          code: '0'
         }
+        
       ],
-      selcate: 'all',
-      seltype: 'all',
-      seldate: 'all',
+      selcate: '',
+      seltype: '',
+      seldate: '',
       page: {
         page: 1,
-        total: 100
+        total: 100,
+        size: 5
       },
-      list: [
-        {
-          id: '1231',
-          name: '愿你经历考研，觉得人间值得',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '1212a31',
-          name: '送你一张时间表，为暑假考研助力！',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '1231231',
-          name: '考研是场马拉松，抓住复习“黄金期”',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312asd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312aasd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312asdfsfsd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '123dfsd12asd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312as474d31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312sdasd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312asxbd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312azxsd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312a123sd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312a123000sd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312a18823sd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }, {
-          id: '12312a177723sd31',
-          name: '考研碰上疫情，复试怎么办',
-          url: '',
-          date: '2020-10-29'
-        }
-      ]
+      list: []
     }
   },
   computed: {},
   created () {},
-  mounted () {},
+  mounted () {
+    this.getList()
+  },
   methods: {
     isopen (val) {
-      return val.startsWith('http')
+      return val ? val.startsWith('http') : false
     },
     handleSelect (type, item) {
       switch (type) {
@@ -287,9 +210,31 @@ export default {
           break
         }
       }
+      this.getList()
     },
     handleCurrentChange (page) {
       console.log(page)
+      this.getList()
+    },
+    async getList(){
+      let { code, data, message } = await this.$axios.$get('/api/material/list',{
+        params : {
+          subject : this.selcate,
+          type : this.seltype,
+          year : this.seldate,
+          page : this.page.page,
+          limit : this.page.size
+        }
+      })
+      console.log( code, data, message )
+      if(!code){
+        this.list = data.list
+        this.page.total = data.total
+      }else{
+        this.list = []
+        this.page.total = 0
+        this.$message({type: 'error',message})
+      }
     }
   }
 }

@@ -50,8 +50,12 @@ export default {
   watch: {},
   created () {},
   mounted () {
-    this.id = this.$route.params.id
-    this.getDetail()
+    // this.id = this.$route.params.id
+    if(this.$route.query.type){
+      this.getDetailTimu()
+    }else{
+      this.getDetail()
+    }
   },
   methods: {
     async getDetail(){
@@ -74,7 +78,28 @@ export default {
             message
         })
       }
-    }
+    },
+    async getDetailTimu(){
+      this.loading = true
+      let { code , data, message } =await this.$axios.$get('/api/material/detail',{
+        params: {
+          id: this.$route.query.id
+        }
+      })
+      this.loading = false
+      if(!code) {
+        this.id = data.id
+        this.title = data.title
+        this.date = data.date
+        this.origin = data.type
+        this.content = data.content
+      }else{
+        this.$message({
+            type: 'error',
+            message
+        })
+      }
+    },
   }
 }
 </script>

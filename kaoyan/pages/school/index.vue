@@ -42,39 +42,7 @@ export default {
     return {
       currentsch: '四川大学',
       school: [
-        {
-          id: '10610',
-          name: '四川大学',
-          url: ''
-        }, {
-          id: '12a3',
-          name: '西南交通大学',
-          url: ''
-        }, {
-          id: '12qwe3',
-          name: '电子科技大学',
-          url: ''
-        }, {
-          id: '123g',
-          name: '西南石油大学',
-          url: ''
-        }, {
-          id: '12a3g',
-          name: '成都理工大学',
-          url: ''
-        }, {
-          id: '12k3g',
-          name: '西南科技大学',
-          url: ''
-        }, {
-          id: '12kad3g',
-          name: '成都信息工程大学',
-          url: ''
-        }, {
-          id: '12k3hjg',
-          name: '四川轻化工大学',
-          url: ''
-        }
+        
       ],
       infolist: [
         {

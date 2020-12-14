@@ -7,6 +7,7 @@ const app = express()
 import postRouter from './routers/post'
 import schoolRouter from './routers/school'
 import facultyRouter from './routers/faculty'
+import materialRouter from './routers/material'
 // Import and Set Nuxt.js options
 import config from '../nuxt.config.js'
 config.dev = process.env.NODE_ENV !== 'production'
@@ -27,6 +28,7 @@ async function start () {
   app.use('/api/',postRouter)
   app.use('/api/school/',schoolRouter)
   app.use('/api/faculty/',facultyRouter)
+  app.use('/api/material/',materialRouter)
   // Give nuxt middleware to express
   app.use(nuxt.render)
 
