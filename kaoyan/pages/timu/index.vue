@@ -37,7 +37,7 @@
         <el-pagination @current-change="handleCurrentChange" :current-page.sync="page.page" :page-size="page.size" layout="prev, pager, next, jumper" :total="page.total"></el-pagination>
       </div>
       <div class="right">
-        <News title="热门资料"/>
+        <!-- <News title="热门资料"/> -->
       </div>
     </div>
   </div>

@@ -34,15 +34,15 @@ router.get('/list', (req, res, next) => {
     sqlQuery.query(sql, [(page - 1) * limit ,page * limit]).then(data =>{
         if(data.length){
             sqlQuery.query(sqlTotal).then(result =>{
-                res.json({ code:0 , data:{ list: data, total:result[0]['total'] },message:"获取成功" })
+                res.json({ code:0 , data:{ list: data, total:result[0]['total'] }, message:"获取成功" })
             }).catch(error =>{
-                res.json({ code:1 , data:'',message:'获取失败'+ error.message })
+                res.json({ code:1 , data:'', message:'获取失败'+ error.message })
             })
         }else{
-            res.json({ code:0 , data:{ list: data, total:0 },message:"获取成功" })
+            res.json({ code:0 , data:{ list: data, total:0 }, message:"获取成功" })
         }
     }).catch(error => {
-        res.json({ code:1 , data:'',message:'获取失败'+ error.message })
+        res.json({ code:1 , data:'', message:'获取失败'+ error.message })
     })
 })
 
